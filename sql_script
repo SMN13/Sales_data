@@ -11,3 +11,29 @@ SELECT COUNT(TransactionID) AS Total_Transactions FROM sales_data;
 -- Average Order Value (AOV)
 SELECT SUM(TransactionAmount) / COUNT(TransactionID) AS Avg_Order_Value FROM sales_data;
 
+-- Customer Demographics Analysis
+
+-- Sales Distribution by Age Groups
+SELECT 
+  CASE 
+    WHEN CustomerAge < 30 THEN '<30'
+    WHEN CustomerAge BETWEEN 30 AND 50 THEN '30-50'
+    ELSE '>50'
+  END AS Age_Group,
+  SUM(TransactionAmount) AS Total_Sales
+FROM sales_data
+GROUP BY Age_Group;
+
+-- Sales by Gender
+SELECT CustomerGender, SUM(TransactionAmount) AS Total_Sales
+FROM sales_data
+GROUP BY CustomerGender;
+
+-- Top Spending Customers
+SELECT CustomerID, SUM(TransactionAmount) AS Total_Spent
+FROM sales_data
+GROUP BY CustomerID
+ORDER BY Total_Spent DESC
+LIMIT 10;
+
+
