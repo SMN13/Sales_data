@@ -36,4 +36,22 @@ GROUP BY CustomerID
 ORDER BY Total_Spent DESC
 LIMIT 10;
 
+-- Store Type & Region Breakdown
+
+-- Online vs. In-Store Sales Contribution
+SELECT StoreType, SUM(TransactionAmount) AS Total_Sales
+FROM sales_data
+GROUP BY StoreType;
+
+-- Regional Sales Performance
+SELECT Region, SUM(TransactionAmount) AS Total_Sales
+FROM sales_data
+GROUP BY Region;
+
+-- Top Performing Cities & Stores
+SELECT City, SUM(TransactionAmount) AS Total_Sales
+FROM sales_data
+GROUP BY City
+ORDER BY Total_Sales DESC
+LIMIT 10;
 
