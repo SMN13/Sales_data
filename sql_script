@@ -55,3 +55,28 @@ GROUP BY City
 ORDER BY Total_Sales DESC
 LIMIT 10;
 
+-- Product & Category Performance
+
+-- Best-Selling Products
+SELECT ProductName, SUM(Quantity) AS Total_Sold
+FROM sales_data
+GROUP BY ProductName
+ORDER BY Total_Sold DESC
+LIMIT 10;
+
+-- Average Discount Impact on Sales
+SELECT DiscountPercent, AVG(TransactionAmount) AS Avg_Sales
+FROM sales_data
+GROUP BY DiscountPercent
+ORDER BY DiscountPercent;
+
+-- Returned Products Analysis
+SELECT ProductName, COUNT(*) AS Return_Count
+FROM sales_data
+WHERE Returned = 'Yes'
+GROUP BY ProductName
+ORDER BY Return_Count DESC;
+
+-- Checking for Missing Values
+SELECT * FROM sales_data
+WHERE TransactionID IS NULL OR CustomerID IS NULL;
