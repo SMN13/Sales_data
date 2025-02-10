@@ -1,3 +1,6 @@
+Overview -
+This project explores a retail sales dataset containing ~500,000 transactions. The dataset includes transaction details, customer demographics, store types, and regional sales data.
+
 # For data exploration and preparation 
 1. Checking for missing values and inconsistencies (e.g., missing CustomerID in row 4).
 2. Identifying data types and ensuring proper formats (e.g., converting TransactionDate to datetime).
