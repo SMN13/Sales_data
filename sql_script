@@ -1,0 +1,13 @@
+-- Checking for missing values
+SELECT * FROM sales_data
+WHERE TransactionID IS NULL OR CustomerID IS NULL;
+
+-- Total Revenue
+SELECT SUM(TransactionAmount) AS Total_Revenue FROM sales_data;
+
+-- Total Transactions
+SELECT COUNT(TransactionID) AS Total_Transactions FROM sales_data;
+
+-- Average Order Value (AOV)
+SELECT SUM(TransactionAmount) / COUNT(TransactionID) AS Avg_Order_Value FROM sales_data;
+
